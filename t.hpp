@@ -371,6 +371,7 @@ public:
 
     tokens require(tokens tok) {
         tokens token = this->match(tokens);
+        //сюды вызов ошибки
         return token;
     };
 
