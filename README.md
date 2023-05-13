@@ -1,6 +1,6 @@
 # Release 0.0.1
 
-![LiteC 0.0.1](https://img.shields.io/badge/BDS-1.19.81.01-blue?style=for-the-badge) ![ConsoleUpdate](https://img.shields.io/badge/Protocol-582-orange?style=for-the-badge)
+![LiteC 0.0.1](https://img.shields.io/badge/LiteC-0.0.1-blue?style=for-the-badge) ![ConsoleUpdate](https://img.shields.io/badge/protocol-0.aa1-orange?style=for-the-badge)
 
 # Notice
 
