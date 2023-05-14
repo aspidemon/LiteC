@@ -34,8 +34,21 @@ public:
         return token;
     };
 
-    ExpressionNode parseVariable() {
-        
+    ExpressionNode parseVariableNumber() {
+        tokens number = this->match(tokens::NUMBER);
+        if (number != 0) {
+            return NumberNode(number);
+        }
+        tokens variable = this->match(tokens::WORD);
+        if (variable != 0) {
+            return VariableNode(variable);
+        }
+        //вызов ошибки
+    };
+
+    ExpressionNode parseFormula() {
+        tokens leftNode = ;
+        tokens rightNode = match(tokens::OPERATION);
     };
     
     ExpressionNode parseExpression() {
