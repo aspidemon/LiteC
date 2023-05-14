@@ -34,6 +34,10 @@ public:
         return token;
     };
 
+    ExpressionNode parseVariable() {
+        
+    };
+    
     ExpressionNode parseExpression() {
         if (this->match(tokens::WORD) == 0) {
             printNode = parsePrint();

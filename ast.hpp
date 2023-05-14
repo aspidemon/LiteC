@@ -36,9 +36,9 @@ private:
 public:
     NumberNode(tokens number) {
         this->number = number;
-    }
+    };
 
-}
+};
 
 class BinOperation {
 private:
@@ -51,9 +51,9 @@ public:
         this->operator = operator;
         this->left = left;
         this->right = right;
-    }
+    };
 
-}
+};
 
 class UnarOperation {
 private:
@@ -64,6 +64,6 @@ public:
     UnarOperation(tokens operation, ExpressionNode operand) {
         this->operation;
         this->operand;
-    }
+    };
 
-}
+};
