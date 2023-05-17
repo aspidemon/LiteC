@@ -30,7 +30,9 @@ public:
 
     tokens require(tokens tok) {
         tokens token = this->match(tokens);
-        //сюды вызов ошибки
+        if (!token) {
+            //сюды вызов ошибки
+        }
         return token;
     };
 
@@ -46,9 +48,24 @@ public:
         //вызов ошибки
     };
 
+    ExpressionNode parseParentheses() {
+        if (this->match(tokens::ARGSBEGGIN) != 0) {
+            ExpressionNode node = this->parseFormula();
+            this->require(tokens::ARGSEND);
+            return node;
+        } else {
+            return this->parseVariableNumber();
+        }
+    };
+
     ExpressionNode parseFormula() {
-        tokens leftNode = ;
-        tokens rightNode = match(tokens::OPERATION);
+        ExpressionNode leftNode = this->parseParentheses();
+        tokens operator = match(tokens::OPERATION);
+        while (operator != 0) {
+            rightNode = ;
+            BinOperation leftNode(operator, leftNode, rightNode); 
+        }
+        return leftNode;
     };
     
     ExpressionNode parseExpression() {
@@ -57,9 +74,14 @@ public:
             return printNode;
         }
         this->pos -= 1;
-        //varNode = parseVarOrNumber();
-        //assignOperator = this->match(tokens::OPERATION);
-
+        EpressionNode varNode = this->parseVarOrNumber();
+        tokens assignOperator = this->match(tokens::OPERATION);
+        if (assignOperator != 0) {
+            ExpressionNode rightFormulaNode = this->parseFormula();
+            BinOperation binaryNode(assignOperator, varNode, rightFormulaNode);
+            return binaryNode;
+        }
+        //вызов ошибки
     };
 
     ExpressionNode parse() {
@@ -70,6 +92,11 @@ public:
             root.addNode(stringNode);
         }
         return root;
+    };
+
+    template <typename T>
+    T run(ExpressionNode node) {
+
     };
 
 };
